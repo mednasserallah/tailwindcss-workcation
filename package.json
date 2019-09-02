@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "tailwindcss": "^1.1.2",
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@tailwindcss/custom-forms": "^0.2.0",
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
@@ -32,11 +34,6 @@
     "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
     }
   },
   "browserslist": [
