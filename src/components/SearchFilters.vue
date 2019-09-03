@@ -1,7 +1,7 @@
 <template>
   <section class="bg-gray-800">
     <div class="flex justify-between px-4 py-3">
-      <div class="relative">
+      <div class="relative sm:w-full sm:max-w-sm">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3">
           <svg class="w-6 h-6 fill-current text-gray-500" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -11,7 +11,7 @@
           </svg>
         </div>
         <input
-          class="pl-10 pr-4 py-2 w-full focus:outline-none focus:bg-white focus:text-gray-900 bg-gray-900 text-white rounded-lg"
+          class="sm:block w-full pl-10 pr-4 py-2 focus:outline-none focus:bg-white focus:text-gray-900 bg-gray-900 text-white rounded-lg"
           placeholder="Search by keywords"
         />
       </div>
@@ -33,107 +33,114 @@
     </div>
 
     <form v-show="isOpen">
-      <!-- Property capacity & price -->
-      <div class="px-4 py-4 border-t border-gray-900">
-        <div class="flex -mx-2">
-          <label class="block w-1/2 px-2">
-            <span class="text-sm text-gray-500 font-semibold">Bedrooms</span>
-            <select class="mt-1 form-select block w-full">
-              <option value="4">4</option>
-            </select>
-          </label>
+      <div class="lg:flex">
+        <!-- Property capacity & price -->
+        <div
+          class="px-4 py-4 border-t border-gray-900 sm:flex sm:justify-between lg:w-2/5 lg:flex-wrap"
+        >
+          <div class="flex -mx-2 sm:w-1/2 lg:w-full">
+            <label class="block w-1/2 px-2">
+              <span class="text-sm text-gray-500 font-semibold">Bedrooms</span>
+              <select class="mt-1 form-select block w-full">
+                <option value="4">4</option>
+              </select>
+            </label>
 
-          <label class="block w-1/2 px-2">
-            <span class="text-sm text-gray-500 font-semibold">Bathrooms</span>
-            <select class="mt-1 form-select block w-full">
-              <option v-for="(i, index) in 5" :value="i" :key="index">{{ i }}</option>
-            </select>
-          </label>
+            <label class="block w-1/2 px-2">
+              <span class="text-sm text-gray-500 font-semibold">Bathrooms</span>
+              <select class="mt-1 form-select block w-full lg:ml-4">
+                <option v-for="(i, index) in 5" :value="i" :key="index">{{ i }}</option>
+              </select>
+            </label>
+          </div>
+
+          <!-- Price Range -->
+          <div class="mt-4 sm:w-1/2 sm:mt-0 lg:w-full">
+            <label class="block">
+              <span class="text-sm text-gray-500 font-semibold">Price Range</span>
+              <select class="mt-1 form-select block w-full">
+                <option value="2000">Up to $2000/ wk</option>
+              </select>
+            </label>
+          </div>
         </div>
 
-        <!-- Price Range -->
-        <div class="mt-4">
-          <label class="block">
-            <span class="text-sm text-gray-500 font-semibold">Price Range</span>
-            <select class="mt-1 form-select block w-full">
-              <option value="2000">Up to $2000/ wk</option>
-            </select>
-          </label>
+        <!-- Property Type -->
+        <div class="px-4 py-4 border-t border-gray-900 lg:w-1/5 lg:border-l">
+          <div>
+            <span class="text-sm text-gray-500 font-semibold">Property Type</span>
+            <div class="sm:flex lg:block">
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-full">
+                <input class="form-radio" type="radio" name="propertyType" value="house" />
+                <span class="ml-2 text-white">House</span>
+              </label>
+
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-full">
+                <input class="form-radio" type="radio" name="propertyType" value="apartment" />
+                <span class="ml-2 text-white">Apartment</span>
+              </label>
+
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-full">
+                <input class="form-radio" type="radio" name="propertyType" value="loft" />
+                <span class="ml-2 text-white">Loft</span>
+              </label>
+
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-full">
+                <input class="form-radio" type="radio" name="propertyType" value="townhouse" />
+                <span class="ml-2 text-white">Townhouse</span>
+              </label>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <!-- Property Type -->
-      <div class="px-4 py-4 border-t border-gray-900">
-        <div>
-          <span class="text-sm text-gray-500 font-semibold">Property Type</span>
+        <!-- Amenities -->
+        <div class="px-4 py-4 border-t border-gray-900 lg:w-2/5 lg:border-l">
+          <div>
+            <span class="text-sm text-gray-500 font-semibold">Amenities</span>
+            <div class="sm:flex sm:flex-wrap">
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2">
+                <input class="form-checkbox" type="checkbox" name="balcony" />
+                <span class="ml-2 text-white">Balcony</span>
+              </label>
 
-          <label class="mt-3 flex items-center">
-            <input class="form-radio" type="radio" name="propertyType" value="house" />
-            <span class="ml-2 text-white">House</span>
-          </label>
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2">
+                <input class="form-checkbox" type="checkbox" name="pool" />
+                <span class="ml-2 text-white">Pool</span>
+              </label>
 
-          <label class="mt-3 flex items-center">
-            <input class="form-radio" type="radio" name="propertyType" value="apartment" />
-            <span class="ml-2 text-white">Apartment</span>
-          </label>
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2">
+                <input class="form-checkbox" type="checkbox" name="beach" />
+                <span class="ml-2 text-white">Beach</span>
+              </label>
 
-          <label class="mt-3 flex items-center">
-            <input class="form-radio" type="radio" name="propertyType" value="loft" />
-            <span class="ml-2 text-white">Loft</span>
-          </label>
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2">
+                <input class="form-checkbox" type="checkbox" name="beach" />
+                <span class="ml-2 text-white">Pet friendly</span>
+              </label>
 
-          <label class="mt-3 flex items-center">
-            <input class="form-radio" type="radio" name="propertyType" value="townhouse" />
-            <span class="ml-2 text-white">Townhouse</span>
-          </label>
-        </div>
-      </div>
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2">
+                <input class="form-checkbox" type="checkbox" name="beach" />
+                <span class="ml-2 text-white">Kid friendly</span>
+              </label>
 
-      <!-- Amenities -->
-      <div class="px-4 py-4 border-t border-gray-900">
-        <div>
-          <span class="text-sm text-gray-500 font-semibold">Amenities</span>
-          <label class="mt-3 flex items-center">
-            <input class="form-checkbox" type="checkbox" name="balcony" />
-            <span class="ml-2 text-white">Balcony</span>
-          </label>
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2">
+                <input class="form-checkbox" type="checkbox" name="beach" />
+                <span class="ml-2 text-white">Parking</span>
+              </label>
 
-          <label class="mt-3 flex items-center">
-            <input class="form-checkbox" type="checkbox" name="airConditioning" />
-            <span class="ml-2 text-white">Air conditioning</span>
-          </label>
-
-          <label class="mt-3 flex items-center">
-            <input class="form-checkbox" type="checkbox" name="pool" />
-            <span class="ml-2 text-white">Pool</span>
-          </label>
-
-          <label class="mt-3 flex items-center">
-            <input class="form-checkbox" type="checkbox" name="beach" />
-            <span class="ml-2 text-white">Beach</span>
-          </label>
-
-          <label class="mt-3 flex items-center">
-            <input class="form-checkbox" type="checkbox" name="beach" />
-            <span class="ml-2 text-white">Pet friendly</span>
-          </label>
-
-          <label class="mt-3 flex items-center">
-            <input class="form-checkbox" type="checkbox" name="beach" />
-            <span class="ml-2 text-white">Kid friendly</span>
-          </label>
-
-          <label class="mt-3 flex items-center">
-            <input class="form-checkbox" type="checkbox" name="beach" />
-            <span class="ml-2 text-white">Parking</span>
-          </label>
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2">
+                <input class="form-checkbox" type="checkbox" name="airConditioning" />
+                <span class="ml-2 text-white">Air conditioning</span>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Update results -->
-      <div class="px-4 py-4 bg-gray-900">
+      <div class="px-4 py-4 bg-gray-900 text-right">
         <button
-          class="px-4 py-2 block w-full font-semibold text-white rounded-lg bg-indigo-500 hover:bg-indigo-400"
+          class="px-4 py-2 block w-full sm:inline-block sm:w-auto font-semibold text-white rounded-lg bg-indigo-500 hover:bg-indigo-400"
         >Update results</button>
       </div>
     </form>
@@ -144,7 +151,7 @@
 export default {
   data() {
     return {
-      isOpen: false
+      isOpen: true
     };
   },
 

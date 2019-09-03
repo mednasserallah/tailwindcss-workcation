@@ -1,6 +1,6 @@
 <template>
-  <header class="bg-gray-900">
-    <div class="px-4 py-3 flex justify-between items-center">
+  <header class="bg-gray-900 sm:flex sm:items-center sm:justify-between">
+    <div class="px-4 py-3 flex justify-between items-center sm:items-baseline">
       <div>
         <svg
           class="h-8 w-auto"
@@ -25,7 +25,7 @@
           />
         </svg>
       </div>
-      <div class="flex">
+      <div class="flex sm:hidden">
         <button @click="toggle" type="button">
           <svg
             class="h-6 w-6 fill-current text-gray-500 hover:text-white focus:outline-none focus:text-white"
@@ -43,23 +43,23 @@
       </div>
     </div>
 
-    <nav v-show="isOpen">
-      <div class="px-5 pt-3 pb-5 border-b border-gray-800">
-        <a href="#" class="block text-white font-semibold">List your property</a>
-        <a href="#" class="mt-3 block text-white font-semibold">Trips</a>
-        <a href="#" class="mt-3 block text-white font-semibold">Messages</a>
+    <nav :class="{ 'hidden': !isOpen, 'block': isOpen }" class="sm:block sm:flex sm:items-center">
+      <div class="px-5 pt-3 pb-5 border-b border-gray-800 sm:py-0 sm:px-1 sm:flex sm:border-0">
+        <a href="#" class="block text-white font-semibold sm:text-sm">List your property</a>
+        <a href="#" class="mt-3 block text-white font-semibold sm:mt-0 sm:ml-6 sm:text-sm">Trips</a>
+        <a href="#" class="mt-3 block text-white font-semibold sm:mt-0 sm:ml-6 sm:text-sm">Messages</a>
       </div>
 
-      <div class="px-5 py-5">
+      <div class="px-5 py-5 sm:py-0">
         <div class="flex items-center">
           <img
-            class="h-10 w-10 rounded-full object-cover border-2 border-gray-600"
+            class="h-10 w-10 rounded-full object-cover border-2 border-gray-600 sm:h-8 sm:w-8"
             src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=260&q=80"
             alt="Isla Schoger"
           />
-          <span class="ml-4 font-semibold text-gray-200">Isla Schoger</span>
+          <span class="ml-4 font-semibold text-gray-200 sm:hidden">Isla Schoger</span>
         </div>
-        <div class="mt-5">
+        <div class="mt-5 sm:hidden">
           <a href="#" class="block text-gray-400 hover:text-white">Account settings</a>
           <a href="#" class="mt-3 block text-gray-400 hover:text-white">Support</a>
           <a href="#" class="mt-3 block text-gray-400 hover:text-white">Sign out</a>
