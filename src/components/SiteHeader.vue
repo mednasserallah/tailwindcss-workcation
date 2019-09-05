@@ -1,6 +1,9 @@
 <template>
-  <header class="bg-gray-900 sm:flex sm:items-center sm:justify-between">
-    <div class="px-4 py-3 flex justify-between items-center sm:items-baseline">
+  <header class="bg-gray-900 sm:flex sm:items-center sm:justify-between xl:bg-white">
+    <div
+      class="px-4 py-3 flex justify-between items-center sm:items-baseline xl:w-72 xl:py-5 xl:justify-center xl:bg-gray-900"
+    >
+      <!-- Logo -->
       <div>
         <svg
           class="h-8 w-auto"
@@ -43,26 +46,88 @@
       </div>
     </div>
 
-    <nav :class="{ 'hidden': !isOpen, 'block': isOpen }" class="sm:block sm:flex sm:items-center">
-      <div class="px-5 pt-3 pb-5 border-b border-gray-800 sm:py-0 sm:px-1 sm:flex sm:border-0">
-        <a href="#" class="block text-white font-semibold sm:text-sm">List your property</a>
-        <a href="#" class="mt-3 block text-white font-semibold sm:mt-0 sm:ml-6 sm:text-sm">Trips</a>
-        <a href="#" class="mt-3 block text-white font-semibold sm:mt-0 sm:ml-6 sm:text-sm">Messages</a>
+    <nav
+      :class="{ 'hidden': !isOpen, 'block': isOpen }"
+      class="sm:block xl:px-4 sm:flex sm:items-center xl:flex-1 xl:justify-between"
+    >
+      <!-- Search -->
+      <div class="hidden xl:block xl:relative xl:w-full xl:max-w-xs">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+          <svg class="w-6 h-6 fill-current text-gray-500" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+            />
+            <path d="M0 0h24v24H0z" fill="none" />
+          </svg>
+        </div>
+        <input
+          class="sm:block w-full pl-10 pr-4 py-2 border border-transparent bg-gray-200 text-gray-900 rounded-lg focus:outline-none focus:border-gray-200 focus:bg-white focus:text-gray-900"
+          placeholder="Search by keywords"
+        />
       </div>
 
-      <div class="px-5 py-5 sm:py-0">
-        <div class="flex items-center">
-          <img
-            class="h-10 w-10 rounded-full object-cover border-2 border-gray-600 sm:h-8 sm:w-8"
-            src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=260&q=80"
-            alt="Isla Schoger"
-          />
-          <span class="ml-4 font-semibold text-gray-200 sm:hidden">Isla Schoger</span>
+      <div class="sm:block sm:flex sm:items-center">
+        <div class="px-5 pt-3 pb-5 border-b border-gray-800 sm:py-0 sm:px-1 sm:flex sm:border-0">
+          <a
+            href="#"
+            class="block text-gray-300 font-semibold sm:text-sm hover:text-white xl:text-gray-900 xl:hover:text-gray-700"
+          >List your property</a>
+          <a
+            href="#"
+            class="mt-3 block text-gray-300 font-semibold sm:mt-0 sm:ml-6 sm:text-sm hover:text-white xl:text-gray-900 xl:hover:text-gray-700"
+          >Trips</a>
+          <a
+            href="#"
+            class="mt-3 block text-gray-300 font-semibold sm:mt-0 sm:ml-6 sm:text-sm hover:text-white xl:text-gray-900 xl:hover:text-gray-700"
+          >Messages</a>
         </div>
-        <div class="mt-5 sm:hidden">
-          <a href="#" class="block text-gray-400 hover:text-white">Account settings</a>
-          <a href="#" class="mt-3 block text-gray-400 hover:text-white">Support</a>
-          <a href="#" class="mt-3 block text-gray-400 hover:text-white">Sign out</a>
+
+        <div class="px-5 py-5 sm:py-0 sm:relative">
+          <div class="flex items-center sm:hidden">
+            <img
+              class="h-10 w-10 rounded-full object-cover border-2 border-gray-600 xl:border-gray-300"
+              src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=260&q=80"
+              alt="Isla Schoger"
+            />
+            <span class="ml-4 font-semibold text-gray-200 sm:hidden">Isla Schoger</span>
+          </div>
+
+          <div class="sm:hidden mt-4">
+            <a href="#" class="block text-gray-400 hover:text-white">Account settings</a>
+            <a href="#" class="mt-3 block text-gray-400 hover:text-white">Support</a>
+            <a href="#" class="mt-3 block text-gray-400 hover:text-white">Sign out</a>
+          </div>
+
+          <Dropdown class="hidden sm:block">
+            <template #trigger="{ hasFocus }">
+              <span
+                class="block h-8 w-8 overflow-hidden rounded-full border-2"
+                :class="[hasFocus ? 'border-indigo-400' : 'border-gray-600 xl:border-gray-300']"
+              >
+                <img
+                  class="h-full w-full object-cover"
+                  src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=260&q=80"
+                  alt="Isla Schoger"
+                />
+              </span>
+            </template>
+            <template #dropdown-items>
+              <div class="mr-2 w-48 mt-3 py-2 bg-white rounded-lg shadow-xl xl:border">
+                <a
+                  href="#"
+                  class="block text-gray-400 hover:text-white px-6 py-2 px-4 text-gray-800 hover:bg-indigo-500"
+                >Account settings</a>
+                <a
+                  href="#"
+                  class="block text-gray-400 hover:text-white px-6 mt-0 py-2 px-4 text-gray-800 hover:bg-indigo-500"
+                >Support</a>
+                <a
+                  href="#"
+                  class="block text-gray-400 hover:text-white px-6 mt-0 py-2 px-4 text-gray-800 hover:bg-indigo-500"
+                >Sign out</a>
+              </div>
+            </template>
+          </Dropdown>
         </div>
       </div>
     </nav>
@@ -70,8 +135,13 @@
 </template>
 
 <script>
+import Dropdown from "@/components/Dropdown.vue";
+
 export default {
   props: [],
+  components: {
+    Dropdown
+  },
   data() {
     return {
       isOpen: false

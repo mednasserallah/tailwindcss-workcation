@@ -1,6 +1,6 @@
 <template>
   <section class="bg-gray-800">
-    <div class="flex justify-between px-4 py-3">
+    <div class="flex justify-between px-4 py-3 xl:hidden">
       <div class="relative sm:w-full sm:max-w-sm">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3">
           <svg class="w-6 h-6 fill-current text-gray-500" xmlns="http://www.w3.org/2000/svg">
@@ -32,11 +32,11 @@
       </button>
     </div>
 
-    <form v-show="isOpen">
-      <div class="lg:flex">
+    <form v-show="isOpen" class="xl:h-full xl:w-72 xl:flex xl:flex-col xl:justify-between">
+      <div class="lg:flex xl:block xl:overflow-y-auto">
         <!-- Property capacity & price -->
         <div
-          class="px-4 py-4 border-t border-gray-900 sm:flex sm:justify-between lg:w-2/5 lg:flex-wrap"
+          class="px-4 py-4 border-t border-gray-900 sm:flex sm:justify-between lg:w-2/5 lg:flex-wrap lg:border-t-0 xl:w-full"
         >
           <div class="flex -mx-2 sm:w-1/2 lg:w-full">
             <label class="block w-1/2 px-2">
@@ -66,7 +66,9 @@
         </div>
 
         <!-- Property Type -->
-        <div class="px-4 py-4 border-t border-gray-900 lg:w-1/5 lg:border-l">
+        <div
+          class="px-4 py-4 border-t border-gray-900 lg:w-1/5 lg:border-l xl:w-full xl:border-l-0"
+        >
           <div>
             <span class="text-sm text-gray-500 font-semibold">Property Type</span>
             <div class="sm:flex lg:block">
@@ -94,41 +96,43 @@
         </div>
 
         <!-- Amenities -->
-        <div class="px-4 py-4 border-t border-gray-900 lg:w-2/5 lg:border-l">
+        <div
+          class="px-4 py-4 border-t border-gray-900 lg:w-2/5 lg:border-l xl:w-full xl:border-l-0"
+        >
           <div>
             <span class="text-sm text-gray-500 font-semibold">Amenities</span>
             <div class="sm:flex sm:flex-wrap">
-              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2">
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2 lg:w-full">
                 <input class="form-checkbox" type="checkbox" name="balcony" />
                 <span class="ml-2 text-white">Balcony</span>
               </label>
 
-              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2">
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2 lg:w-full">
                 <input class="form-checkbox" type="checkbox" name="pool" />
                 <span class="ml-2 text-white">Pool</span>
               </label>
 
-              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2">
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2 lg:w-full">
                 <input class="form-checkbox" type="checkbox" name="beach" />
                 <span class="ml-2 text-white">Beach</span>
               </label>
 
-              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2">
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2 lg:w-full">
                 <input class="form-checkbox" type="checkbox" name="beach" />
                 <span class="ml-2 text-white">Pet friendly</span>
               </label>
 
-              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2">
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2 lg:w-full">
                 <input class="form-checkbox" type="checkbox" name="beach" />
                 <span class="ml-2 text-white">Kid friendly</span>
               </label>
 
-              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2">
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2 lg:w-full">
                 <input class="form-checkbox" type="checkbox" name="beach" />
                 <span class="ml-2 text-white">Parking</span>
               </label>
 
-              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2">
+              <label class="mt-3 flex items-center sm:w-1/4 lg:w-1/2 lg:w-full">
                 <input class="form-checkbox" type="checkbox" name="airConditioning" />
                 <span class="ml-2 text-white">Air conditioning</span>
               </label>
@@ -140,7 +144,7 @@
       <!-- Update results -->
       <div class="px-4 py-4 bg-gray-900 text-right">
         <button
-          class="px-4 py-2 block w-full sm:inline-block sm:w-auto font-semibold text-white rounded-lg bg-indigo-500 hover:bg-indigo-400"
+          class="px-4 py-2 block w-full sm:inline-block sm:w-auto font-semibold text-white rounded-lg bg-indigo-500 hover:bg-indigo-400 xl:block xl:w-full"
         >Update results</button>
       </div>
     </form>
